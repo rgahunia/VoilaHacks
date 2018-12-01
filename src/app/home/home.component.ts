@@ -4,6 +4,7 @@ import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api/api.service';
 import * as Chartist from 'chartist';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -27,19 +28,17 @@ export class HomeComponent implements OnInit {
     public activityChartResponsive: any[];
     public activityChartLegendItems: LegendItem[];
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
-
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) { }
+   private customer_id :any; 
   ngOnInit() {
     this.getCustomerSummary();
 
     this.route.params.subscribe(
       params => {
-        console.log(params);
         console.log(params['id']);
+        this.customer_id = params['id'];
       }
     );
-
-
       this.emailChartType = ChartType.Pie;
       this.emailChartData = {
         labels: ['62%', '32%', '6%'],
@@ -50,7 +49,7 @@ export class HomeComponent implements OnInit {
         { title: 'Bounce', imageClass: 'fa fa-circle text-danger' },
         { title: 'Unsubscribe', imageClass: 'fa fa-circle text-warning' }
       ];
-
+// end pie chart 
       this.hoursChartType = ChartType.Line;
       this.hoursChartData = {
         labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
@@ -125,5 +124,11 @@ export class HomeComponent implements OnInit {
         console.log(data);
       });
     }
-
+    //GoToClient
+    GoToClient(getid) {
+      //this.apiService.getCustomerList().subscribe((data: Object) => {
+        console.log(getid);
+        this.router.navigate(['/user', { id : getid}]);
+     
+    }
 }

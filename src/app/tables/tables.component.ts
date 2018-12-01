@@ -14,8 +14,7 @@ declare interface TableData {
 })
 export class TablesComponent implements OnInit {
     public tableData1: TableData;
-    private customers: Array<object> = [];
-
+    private customers: Array<any> = [];
   constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
@@ -23,7 +22,7 @@ export class TablesComponent implements OnInit {
   }
 
   getCustomers() {
-    this.apiService.getCustomerList().subscribe((data:  Array<object>) => {
+    this.apiService.getCustomerList().subscribe((data:  Array<any>) => {
       this.customers = data;
 
       this.tableData1 = {

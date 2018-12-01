@@ -22,6 +22,11 @@
   border-color: #f73443 ;
   color: #f73443;
 }
+.btn-info
+{
+  border-color: transparent ;
+  font-size: 1.4em
+}
 #cibclogo
 {
     margin-left: 70%;
