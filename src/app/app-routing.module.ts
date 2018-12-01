@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AdvisorLayoutComponent } from './layouts/advisor-layout/advisor-layout.component';
+import { AdvisorUserComponent } from './advisor/user/advuser.component' // './layouts/advisor-layout/advisor-layout.component';
 // adv layout 
 //const routes: Routes = [];
 const routes: Routes =[
@@ -27,15 +28,30 @@ const routes: Routes =[
         {
       path: '',
       loadChildren: './layouts/advisor-layout/advisor-layout.module#AdvisorLayoutModule'
-  }]},
+  }, 
+  
+  {path:'advuser', loadChildren:'./layouts/advisor-layout/advisor-layout.module#AdvisorLayoutModule'}
+
+
+]},
+  // // test  adv user 
+  // {
+  //   path: 'advuser',
+  //   component: AdvisorUserComponent,
+  //   children: [
+  //       {
+  //     path: '',
+  //     loadChildren: './layouts/advisor-layout/advisor-layout.module#AdvisorLayoutModule'
+  // }]},
+
   {
     path: 'login',
     component: LoginComponent,
   },
-  {
-    path: '**',
-    redirectTo: 'dashboard'
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'dashboard'
+  // },
   
 ];
 
