@@ -39,6 +39,8 @@ export class HomeComponent implements OnInit {
       }
     );
 
+    //this.accessCurrentPortfolio(id); UNCOMMENT ME
+
 
       this.emailChartType = ChartType.Pie;
       this.emailChartData = {
@@ -123,6 +125,14 @@ export class HomeComponent implements OnInit {
     getCustomerSummary() {
       this.apiService.getCustomerList().subscribe((data: Object) => {
         console.log(data);
+      });
+    }
+
+
+    accessCurrentPortfolio(id: string) {
+      this.apiService.getCurrentPortfolio(id).subscribe((data: any) => {
+        console.log(data);
+        //DATA is the data for the pie chart
       });
     }
 
