@@ -46,9 +46,15 @@ export class LoginComponent implements OnInit {
         }
 
         this.loading = true;
-        if(this.f.username.value=="client")
+        if(this.f.username.value=="advisor")
         {
-            this.router.navigate([this.returnUrl])
+            this.router.navigate(['clientlist'])
+           // this.router.navigate([this.returnUrl])
+        }
+        else if(this.f.username.value=="client")
+        {
+            this.router.navigate(['clienthome'])
+           // this.router.navigate([this.returnUrl])
         }
         else
         {

@@ -15,12 +15,14 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { AdvSidebarModule } from './advisor/sidebar/advsidebar.module';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AdvisorLayoutComponent } from './layouts/advisor-layout/advisor-layout.component';
+import { AdvisorUserComponent } from './advisor/user/advuser.component'; // './layouts/advisor-layout/advisor-layout.component';
 import { AlertService, AuthenticationService, UserService } from './_services';
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AdvisorLayoutComponent,
+    AdvisorUserComponent,
     LoginComponent
   ],
   imports: [

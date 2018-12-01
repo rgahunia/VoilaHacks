@@ -11,8 +11,13 @@ import { AdvisorUserComponent } from './advisor/user/advuser.component' // './la
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'advisor', // dashboard
     pathMatch: 'full',
+  },
+  {
+    path: 'advuser',
+    component: AdvisorUserComponent,
+    //pathMatch: 'full',
   }, {
     path: '',
     component: AdminLayoutComponent,
@@ -24,25 +29,28 @@ const routes: Routes =[
   {
     path: 'advisor',
     component: AdvisorLayoutComponent,
-    children: [
-        {
-      path: '',
-      loadChildren: './layouts/advisor-layout/advisor-layout.module#AdvisorLayoutModule'
-  }, 
-  
-  {path:'advuser', loadChildren:'./layouts/advisor-layout/advisor-layout.module#AdvisorLayoutModule'}
+//     children: [
+//         {
+//       path: '',
+//       loadChildren: './layouts/advisor-layout/advisor-layout.module#AdvisorLayoutModule'
+//   }, 
+// ]
 
-
-]},
+},
   // // test  adv user 
   // {
   //   path: 'advuser',
   //   component: AdvisorUserComponent,
-  //   children: [
-  //       {
-  //     path: '',
-  //     loadChildren: './layouts/advisor-layout/advisor-layout.module#AdvisorLayoutModule'
-  // }]},
+  //    // test 
+  //  children: [
+  //   { path: 'routes', component: RoutesComponent, outlet: 'project' },
+  //   { path: 'rides/new', component: AddRideComponent, outlet: 'project' },
+  //   { path: 'routes/:id', component: RideDetailsComponent, outlet: 'project' },
+  //   { path: 'stops', component: StopsComponent, outlet: 'project' },
+  //   { path: 'stops/new', component: AddStopComponent, outlet: 'project' },
+  //   { path: 'stops/:id', component: StopDetailsComponent, outlet: 'project' }
+  // ]},
+  //  // test end },
 
   {
     path: 'login',
