@@ -11,4 +11,4 @@ describe('workspace-project App', () => {
     page.navigateTo();
     expect(page.getTitleText()).toEqual('Welcome to my-project!');
   });
-});
+}); 

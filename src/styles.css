@@ -2,8 +2,12 @@
 .login-logo, .register-logo {
     font-size: 25px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-left: 10px;
     font-weight: 300;
+    margin-right: -299px;
+    opacity: inherit;
+    
 }
 
 .login-box-body, .register-box-body {
@@ -18,3 +22,46 @@
   border-color: #f73443 ;
   color: #f73443;
 }
+#cibclogo
+{
+    margin-left: 70%;
+    position: relative;
+}
+/* #mycontainer {
+    background-image: url(../src/assets/img/logot.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+   position: relative;
+   max-width: 100%!important;
+ 
+  
+
+    opacity: 0.2; filter: alpha(opacity=20);
+    } */
+
+    #mycontainer {
+        position: relative;
+        background: transparent;
+        overflow: hidden;
+    }
+    #mycontainer {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 97%;
+        height: 97%;
+        z-index: 1;
+        opacity: 0.6;
+        background-image: url(../src/assets/img/logot.png);
+        background-repeat: no-repeat;
+        background-position: 100% 0 ;  
+        /* 50% 0; */
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size:  cover;
+    }

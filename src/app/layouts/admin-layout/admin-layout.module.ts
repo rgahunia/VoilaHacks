@@ -9,6 +9,7 @@ import { NguiMapModule} from '@ngui/map';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
 import { HomeComponent } from '../../home/home.component';
+import { ClientHomeComponent } from '../../home_client/homeclient.component';
 import { UserComponent } from '../../user/user.component';
 import { TablesComponent } from '../../tables/tables.component';
 import { TypographyComponent } from '../../typography/typography.component';
@@ -28,6 +29,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
   ],
   declarations: [
     HomeComponent,
+    ClientHomeComponent,
     UserComponent,
     TablesComponent,
     TypographyComponent,

@@ -1,0 +1,7 @@
+body {
+    background-image: url(/src/assets/img/logot.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.4;
+    }
