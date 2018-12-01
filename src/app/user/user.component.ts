@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit() {
+    this.route.params.subscribe(
+      params => {
+        this.getCustomerProfile(params['id']);
+      }
+    );
+  }
+
+  getCustomerProfile(id: string) {
+    this.apiService.getCustomerProfile(id).subscribe((data: Object) => {
+      console.log(data);
+    });
   }
 
 }

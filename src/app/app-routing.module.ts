@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AdvisorLayoutComponent } from './layouts/advisor-layout/advisor-layout.component';
 import { AdvisorUserComponent } from './advisor/user/advuser.component' // './layouts/advisor-layout/advisor-layout.component';
-// adv layout 
+// adv layout
 //const routes: Routes = [];
 const routes: Routes =[
   {
@@ -33,15 +33,15 @@ const routes: Routes =[
 //         {
 //       path: '',
 //       loadChildren: './layouts/advisor-layout/advisor-layout.module#AdvisorLayoutModule'
-//   }, 
+//   },
 // ]
 
 },
-  // // test  adv user 
+  // // test  adv user
   // {
   //   path: 'advuser',
   //   component: AdvisorUserComponent,
-  //    // test 
+  //    // test
   //  children: [
   //   { path: 'routes', component: RoutesComponent, outlet: 'project' },
   //   { path: 'rides/new', component: AddRideComponent, outlet: 'project' },
@@ -60,7 +60,7 @@ const routes: Routes =[
   //   path: '**',
   //   redirectTo: 'dashboard'
   // },
-  
+
 ];
 
 @NgModule({

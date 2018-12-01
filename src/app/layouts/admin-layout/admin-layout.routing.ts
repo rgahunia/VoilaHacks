@@ -9,7 +9,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { ClientHomeComponent } from '../../home_client/homeclient.component'  //'../../upgrade/upgrade.component';
+// import { ClientHomeComponent } from '../../home_client/homeclient.component';  //'../../upgrade/upgrade.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'advisor',      component: HomeComponent },
@@ -21,5 +21,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
 
-    { path: 'clienthome',          component: ClientHomeComponent },
+    // { path: 'clienthome',          component: ClientHomeComponent },
 ];
