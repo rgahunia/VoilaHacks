@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+.login-logo, .register-logo {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+.login-box-body, .register-box-body {
+    background: #fff;
+    padding: 20px;
+    margin-left: 30%!important;
+    border-top: 0;
+    color: #666;
+}
+.btn-primary
+{
+  border-color: #f73443 ;
+  color: #f73443;
+}

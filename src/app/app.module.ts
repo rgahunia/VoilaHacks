@@ -1,18 +1,45 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { NavbarModule } from './shared/navbar/navbar.module';
+import { FooterModule } from './shared/footer/footer.module';
+import { LoginComponent } from './login/login.component';
+import { SidebarModule } from './sidebar/sidebar.module';
+import { AdvSidebarModule } from './advisor/sidebar/advsidebar.module';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AdvisorLayoutComponent } from './layouts/advisor-layout/advisor-layout.component';
+import { AlertService, AuthenticationService, UserService } from './_services';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminLayoutComponent,
+    AdvisorLayoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,ReactiveFormsModule,
+    RouterModule,
+    HttpModule,
+    HttpClientModule,
+    NavbarModule,
+    SidebarModule,
+    AdvSidebarModule,
+    FooterModule
   ],
-  providers: [],
+  providers: [
+    AlertService,
+    AuthenticationService,
+    UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
