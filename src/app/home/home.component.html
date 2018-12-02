@@ -3,15 +3,15 @@
           <div class="row">
             <div class="col-md-6">
               <lbd-chart
-                [title]="'Current Portfolio'"
+                [title]="'Current Profile'"
                 [subtitle]="'Portfolio Breakdown'"
                 [chartClass]="'ct-perfect-fourth'"
                 [chartType]="currentPortfolioGraphType"
                 [chartData]="currentPortfolioGraph"
                 [legendItems]="currentPortfolioLegend"
                 [withHr]="true"
-                [footerIconClass]="'fa fa-clock-o'"
-                [footerText]="'Current Portfolio'">
+                [footerIconClass]="''"
+                [footerText]="currentPortfolioClassification">
               </lbd-chart>
             </div>
             <div class="col-md-6">
@@ -23,8 +23,8 @@
                 [chartData]="recommendedPortfolioGraph"
                 [legendItems]="recommendedPortfolioLegend"
                 [withHr]="true"
-                [footerIconClass]="'fa fa-clock-o'"
-                [footerText]="'Recommended Portfolio'">
+                [footerIconClass]="''"
+                [footerText]="recommendedPortfolioClassification">
               </lbd-chart>
             </div>
           </div>

@@ -20,12 +20,14 @@ export class HomeComponent implements OnInit {
   public currentPortfolioLegend: any;
   public currentPortfolioGraph: any;
   public currentPortfolioGraphType: ChartType;
+  public currentPortfolioClassification = '';
 
   private recommendedPortfolioLabels: any;
   private recommendedPortfolioData: any;
   public recommendedPortfolioLegend: any;
   public recommendedPortfolioGraph: any;
   public recommendedPortfolioGraphType: ChartType;
+  public recommendedPortfolioClassification = '';
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) { }
 
@@ -48,7 +50,7 @@ export class HomeComponent implements OnInit {
     this.recommendedPortfolioData = [];
     this.recommendedPortfolioLegend = [];
 
-    
+
       this.sendRequestForCurrentPortfolioGraphData(this.customer_id);
     this.sendRequestForRecommendedPortfolioGraphData(this.customer_id);
   }
@@ -61,8 +63,10 @@ export class HomeComponent implements OnInit {
 
   sendRequestForCurrentPortfolioGraphData(id: string) {
     this.apiService.getCurrentPortfolio(id).subscribe((data: any) => {
+      this.currentPortfolioClassification = data.risk;
+
       let colors: Array<string> = ['fa fa-circle text-info', 'ct-series-e', 'fa fa-circle text-warning'];
-     
+
       for (let i = 0; i < data.values.length; i++) {
         this.currentPortfolioData.push(data.values[i]);
       }
@@ -86,6 +90,8 @@ export class HomeComponent implements OnInit {
 
   sendRequestForRecommendedPortfolioGraphData(id: string) {
     this.apiService.getRecommendedPortfolio(id).subscribe((data: any) => {
+      this.recommendedPortfolioClassification = data.risk;
+
       let colors: Array<string> = ["fa fa-circle text-info","fa fa-circle text-danger","fa fa-circle text-warning"];
       for (let i = 0; i < data.names.length; i++) {
         let index = i+1;

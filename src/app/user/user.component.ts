@@ -19,13 +19,19 @@ export class UserComponent implements OnInit {
   public postalCode: any;
   public creditRating: any;
 
+  public currentBiasType: any;
+  public currentTolerance: any;
+  public currentBiases: any;
+  public currentRiskTolerance: any;
+
   constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) { }
-  private customer_id :any; 
+  private customer_id: any;
   ngOnInit() {
     this.route.params.subscribe(
       params => {
         this.getCustomerProfile(params['id']);
-        this.customer_id= params['id'];
+        this.getRecommendedRisk(params['id']);
+        this.customer_id = params['id'];
       }
     );
 
@@ -53,12 +59,21 @@ export class UserComponent implements OnInit {
     });
   }
 
-      //GoToClient
-      GoToClient(getid) {
 
-        this.router.navigate(['/advisor', { id : getid}]);
-     
-    }
+  getRecommendedRisk(id: string) {
+    this.apiService.getCurrentPortfolio(id).subscribe((data: any) => {
+      let risk = data.risk;
+      this.currentRiskTolerance = data.risk;
 
+      this.apiService.getRiskDescription(risk).subscribe((riskData: any) => {
+        this.currentBiasType = riskData.biasType;
+        this.currentTolerance = riskData.tolerance;
+        this.currentBiases = riskData.biases;
+      });
+    });
+  }
 
+  GoToClient(getid) {
+    this.router.navigate(['/advisor', { id : getid}]);
+  }
 }

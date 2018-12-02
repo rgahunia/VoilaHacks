@@ -115,5 +115,45 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Current Risk Tolerance: {{currentRiskTolerance}}</h4>
+                    </div>
+                    <div class="content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Bias Type</label>
+                                        <input type="text" class="form-control" disabled placeholder="Bias Type" value="{{currentBiasType}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Tolerance</label>
+                                        <input type="text" class="form-control" disabled placeholder="Tolerance" value="{{currentTolerance}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div *ngFor="let currentBias of currentBiases" class="form-group">
+                                        <label>Bias</label>
+                                        <input type="text" class="form-control" disabled placeholder="Bias" value="{{currentBias}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

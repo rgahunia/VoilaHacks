@@ -41,4 +41,11 @@ export class ApiService {
 
     return this.httpClient.get(this.API_URL + '/api/v1/customers/' + id + '/portfolio/recommended', {headers: httpHeaders});
   }
+
+  getRiskDescription(risk: string) {
+    let httpHeaders: HttpHeaders = new HttpHeaders();
+    httpHeaders = httpHeaders.append('Authorization', this.token1 + this.token2);
+
+    return this.httpClient.get(this.API_URL + '/api/v1/risks/' + risk, {headers: httpHeaders});
+  }
 }
