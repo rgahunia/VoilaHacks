@@ -27,7 +27,7 @@ export class TablesComponent implements OnInit {
       this.customers = data;
 
       this.tableData1 = {
-        headerRow: [ 'ID', 'Name'],
+        headerRow: [ 'ID', 'Name', 'Phone Number', 'Email Address'],
         dataRows: []
       };
 
