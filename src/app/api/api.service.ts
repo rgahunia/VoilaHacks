@@ -34,4 +34,11 @@ export class ApiService {
 
     return this.httpClient.get(this.API_URL + '/api/v1/customers/' + id + '/portfolio/current', {headers: httpHeaders});
   }
+
+  getRecommendedPortfolio(id: string) {
+    let httpHeaders: HttpHeaders = new HttpHeaders();
+    httpHeaders = httpHeaders.append('Authorization', this.token1 + this.token2);
+
+    return this.httpClient.get(this.API_URL + '/api/v1/customers/' + id + '/portfolio/recommended', {headers: httpHeaders});
+  }
 }
