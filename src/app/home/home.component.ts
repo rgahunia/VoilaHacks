@@ -48,24 +48,8 @@ export class HomeComponent implements OnInit {
     this.recommendedPortfolioData = [];
     this.recommendedPortfolioLegend = [];
 
-    // this.sendRequestForCurrentPortfolioGraphData(this.customer_id);
-    // test
-    // $timeout(function () {
-
-    //   $scope.chartistChartData = {
-    //       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    //       series: [
-    //           [1000, 1200, 1300, 1200, 1440, 1800],
-    //           [1600, 1550, 1497, 1440, 1200, 1000],
-    //       ]
-    //   };  
-  
-    // }, 200);
     
-    setTimeout(()=>{    //<<<---    using ()=> syntax
       this.sendRequestForCurrentPortfolioGraphData(this.customer_id);
- }, 3000);
-    // end test 
     this.sendRequestForRecommendedPortfolioGraphData(this.customer_id);
   }
 
@@ -78,6 +62,10 @@ export class HomeComponent implements OnInit {
   sendRequestForCurrentPortfolioGraphData(id: string) {
     this.apiService.getCurrentPortfolio(id).subscribe((data: any) => {
       let colors: Array<string> = ['fa fa-circle text-info', 'fa fa-circle text-danger', 'fa fa-circle text-warning'];
+     
+      for (let i = 0; i < data.values.length; i++) {
+        this.currentPortfolioData.push(data.values[i]);
+      }
       for (let i = 0; i < data.names.length; i++) {
         this.currentPortfolioLegend.push({title: i, imageClass: colors[Math.floor(Math.random() * colors.length)]});
         this.currentPortfolioLabels.push(i);
@@ -85,10 +73,7 @@ export class HomeComponent implements OnInit {
       console.log('currentPortfolioLabels');
       console.log(this.currentPortfolioLabels);
 
-      for (let i = 0; i < data.values.length; i++) {
-        this.currentPortfolioData.push(data.values[i]);
-      }
-      console.log('currentPortfolioLabels');
+      console.log('currentPortfolioData');
       console.log(this.currentPortfolioData);
 
       this.currentPortfolioGraph = {
