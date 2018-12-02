@@ -75,6 +75,6 @@ export class LbdChartComponent implements OnInit, AfterViewInit {
           new Chartist.Bar(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
           break;
       }
- }, 3000);
+ }, 2000);
   }
 }

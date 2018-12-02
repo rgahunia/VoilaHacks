@@ -9,7 +9,8 @@
     <div class="footer">
       <div class="legend">
         <span *ngFor="let item of legendItems">
-          <i [ngClass]="item.imageClass"></i> {{ item.title }}
+          <!-- <i [ngClass]="item.imageClass"></i>        -->
+          {{ item.title }} : {{item.imageClass}}<br/>
         </span>
       </div>
       <hr *ngIf="withHr">

@@ -61,14 +61,15 @@ export class HomeComponent implements OnInit {
 
   sendRequestForCurrentPortfolioGraphData(id: string) {
     this.apiService.getCurrentPortfolio(id).subscribe((data: any) => {
-      let colors: Array<string> = ['fa fa-circle text-info', 'fa fa-circle text-danger', 'fa fa-circle text-warning'];
+      let colors: Array<string> = ['fa fa-circle text-info', 'ct-series-e', 'fa fa-circle text-warning'];
      
       for (let i = 0; i < data.values.length; i++) {
         this.currentPortfolioData.push(data.values[i]);
       }
       for (let i = 0; i < data.names.length; i++) {
-        this.currentPortfolioLegend.push({title: i, imageClass: colors[Math.floor(Math.random() * colors.length)]});
-        this.currentPortfolioLabels.push(i);
+        let index = i+1;
+        this.currentPortfolioLegend.push({title: index, imageClass: data.names[i]});
+        this.currentPortfolioLabels.push(index);
       }
       console.log('currentPortfolioLabels');
       console.log(this.currentPortfolioLabels);
@@ -87,8 +88,9 @@ export class HomeComponent implements OnInit {
     this.apiService.getRecommendedPortfolio(id).subscribe((data: any) => {
       let colors: Array<string> = ["fa fa-circle text-info","fa fa-circle text-danger","fa fa-circle text-warning"];
       for (let i = 0; i < data.names.length; i++) {
-        this.recommendedPortfolioLegend.push({title: i, imageClass: colors[Math.floor(Math.random() * colors.length)]});
-        this.recommendedPortfolioLabels.push(i);
+        let index = i+1;
+        this.recommendedPortfolioLegend.push({title: index, imageClass: data.names[i]});
+        this.recommendedPortfolioLabels.push(index);
       }
 
       for (let i = 0; i < data.values.length; i++) {
