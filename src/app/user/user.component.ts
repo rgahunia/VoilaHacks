@@ -17,6 +17,7 @@ export class UserComponent implements OnInit {
   public city: any;
   public country: any;
   public postalCode: any;
+  public creditRating: any;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
@@ -39,13 +40,14 @@ export class UserComponent implements OnInit {
 
       let streetAddress = '';
       for (let i = 0; i < data.address.street_address.length; i++) {
-        console.log(data.address[i]);
-        streetAddress = streetAddress + data.address[i] + ' ';
+        streetAddress = streetAddress + data.address.street_address[i] + ' ';
       }
       this.address = streetAddress;
-      this.city = data.city;
-      this.country = data.country;
-      this.postalCode = data.zip_code;
+      this.city = data.address.city;
+      this.country = data.address.country;
+      this.postalCode = data.address.zip_code;
+
+      this.creditRating = data.credit_rating.rating;
     });
   }
 
