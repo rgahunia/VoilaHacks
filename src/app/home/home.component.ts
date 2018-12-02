@@ -22,11 +22,11 @@ export class HomeComponent implements OnInit {
     public hoursChartResponsive: any[];
     public hoursChartLegendItems: LegendItem[];
 
-    public activityChartType: ChartType;
-    public activityChartData: any;
+    public emailChartType1: ChartType;
+    public emailChartData1: any;
     public activityChartOptions: any;
     public activityChartResponsive: any[];
-    public activityChartLegendItems: LegendItem[];
+    public emailChartLegendItems1: LegendItem[];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) { }
    private customer_id :any; 
@@ -44,22 +44,24 @@ export class HomeComponent implements OnInit {
     );
 
 
-    this.accessCurrentPortfolio(this.customer_id); //UNCOMMENT ME
+    
+
       this.emailChartType = ChartType.Pie;
       // test data 
       // end test data
       this.mylabels = []; // ['62%', '32%', '6%'];
       this.myseries =[];// [62, 32, 6];
-
+        this.mylegands=[];
+        this.accessCurrentPortfolio(this.customer_id); //UNCOMMENT ME
       this.emailChartData = {
         labels: this.mylabels,
         series: this.myseries
       };
-      this.emailChartLegendItems = [
+      this.emailChartLegendItems = this.mylegands;// [
         // { title: 'Open', imageClass: 'fa fa-circle text-info' },
         // { title: 'Bounce', imageClass: 'fa fa-circle text-danger' },
         // { title: 'Unsubscribe', imageClass: 'fa fa-circle text-warning' }
-      ];
+      //];
 // end pie chart 
       this.hoursChartType = ChartType.Line;
       this.hoursChartData = {
@@ -96,11 +98,12 @@ export class HomeComponent implements OnInit {
       this.hoursChartLegendItems = [
         { title: 'Open', imageClass: 'fa fa-circle text-info' },
         { title: 'Click', imageClass: 'fa fa-circle text-danger' },
-        { title: 'Click Second Time', imageClass: 'fa fa-circle text-warning' }
+        { title: 'Click Second Time', imageClass: 'fa fa-circle text-warning' },
+        { title: 'Click third Time', imageClass: 'fa fa-circle text-warning' }
       ];
 
-      this.activityChartType = ChartType.Bar;
-      this.activityChartData = {
+      this.emailChartType1 = ChartType.Pie;
+      this.emailChartData1 = {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         series: [
           [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
@@ -124,7 +127,7 @@ export class HomeComponent implements OnInit {
           }
         }]
       ];
-      this.activityChartLegendItems = [
+      this.emailChartLegendItems1 = [
         { title: 'Tesla Model S', imageClass: 'fa fa-circle text-info' },
         { title: 'BMW 5 Series', imageClass: 'fa fa-circle text-danger' }
       ];
@@ -146,14 +149,15 @@ export class HomeComponent implements OnInit {
 
     accessCurrentPortfolio(id: string) {
       this.apiService.getCurrentPortfolio(id).subscribe((data: any) => {
-        console.log(data);
+       // console.log(data);
         //DATA is the data for the pie chart
         let colors :Array<string> = ["fa fa-circle text-info","fa fa-circle text-danger","fa fa-circle text-warning"];
         for (let i = 0; i < data.names.length; i++) {
-          this.emailChartLegendItems.push({title:data.names[i],imageClass: colors[Math.floor(Math.random() * colors.length)]});
+          this.mylegands.push({title:data.names[i],imageClass: colors[Math.floor(Math.random() * colors.length)]});
           this.mylabels.push(data.names[i]);
         }
-        //console.log(this.emailChartLegendItems); 
+        console.log(this.mylabels); 
+        console.log(this.emailChartLegendItems); 
         // values 
         for (let i = 0; i < data.values.length; i++) {
           this.myseries.push(data.values[i]);

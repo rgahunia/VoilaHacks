@@ -11,10 +11,10 @@
                 </div>
                 <br/>
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-7">
                 <lbd-chart
-                  [title]="'Email Statistics'"
-                  [subtitle]="'Last Campaign Performance'"
+                  [title]="'Client Statistics'"
+                  [subtitle]="' Portfolio Performance'"
                   [chartClass]="'ct-perfect-fourth'"
                   [chartType]="emailChartType"
                   [chartData]="emailChartData"
@@ -24,8 +24,8 @@
                   [footerText]="'Current Portfolio'">
                 </lbd-chart>
             </div>
-            <div class="col-md-2">
-                <!-- <lbd-chart
+            <div class="col-md-5">
+                <lbd-chart
                   [title]="'Users Behavior'"
                   [subtitle]="'24 Hours performance'"
                   [chartType]="hoursChartType"
@@ -36,24 +36,23 @@
                   [withHr]="true"
                   [footerIconClass]="'fa fa-history'"
                   [footerText]="'Updated 3 minutes ago'">
-                </lbd-chart> -->
+                </lbd-chart>
             </div>
         </div>
         
         <div class="row">
             <div class="col-md-6">
-                <lbd-chart
-                  [title]="'2014 Sales'"
-                  [subtitle]="'All products including Taxes'"
-                  [chartType]="activityChartType"
-                  [chartData]="activityChartData"
-                  [chartOptions]="activityChartOptions"
-                  [chartResponsive]="activityChartResponsive"
-                  [legendItems]="activityChartLegendItems"
-                  [withHr]="true"
-                  [footerIconClass]="'fa fa-check'"
-                  [footerText]="'Data information certified'">
-                </lbd-chart>
+                    <lbd-chart
+                    [title]="'Client Statistics'"
+                    [subtitle]="'Upcoming Portfolio Performance'"
+                    [chartClass]="'ct-perfect-fourth'"
+                    [chartType]="emailChartType1"
+                    [chartData]="emailChartData1"
+                    [legendItems]="emailChartLegendItems1"
+                    [withHr]="true"
+                    [footerIconClass]="'fa fa-clock-o'"
+                    [footerText]="'Recommended Portfolio'">
+                  </lbd-chart>
             </div>
             <div class="col-md-6">
                 <div class="card">
