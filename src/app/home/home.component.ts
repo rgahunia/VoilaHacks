@@ -33,6 +33,10 @@ export class HomeComponent implements OnInit {
    private mylabels :any;
    private myseries :any;
    private mylegands :any;
+   // second 
+   private mylabels1 :any;
+   private myseries1 :any;
+   private mylegands1 :any;
   ngOnInit() {
     this.getCustomerSummary();
 
@@ -52,7 +56,13 @@ export class HomeComponent implements OnInit {
       this.mylabels = []; // ['62%', '32%', '6%'];
       this.myseries =[];// [62, 32, 6];
         this.mylegands=[];
+        // second 
+        this.mylabels1 = []; 
+        this.myseries1 =[];
+          this.mylegands1=[];
         this.accessCurrentPortfolio(this.customer_id); //UNCOMMENT ME
+        // for the second graph 
+        this.accessRecommendedPortfolio(this.customer_id);
       this.emailChartData = {
         labels: this.mylabels,
         series: this.myseries
@@ -104,11 +114,8 @@ export class HomeComponent implements OnInit {
 
       this.emailChartType1 = ChartType.Pie;
       this.emailChartData1 = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
-          [412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636, 695]
-        ]
+        labels: this.mylabels1,
+        series: this.myseries1
       };
       this.activityChartOptions = {
         seriesBarDistance: 10,
@@ -163,6 +170,27 @@ export class HomeComponent implements OnInit {
           this.myseries.push(data.values[i]);
         }
         console.log(this.myseries); 
+        
+        
+      });
+    }
+    // second graph 
+    accessRecommendedPortfolio(id: string) {
+      this.apiService.getRecommendedPortfolio(id).subscribe((data: any) => {
+       //console.log(data);
+        //DATA is the data for the pie chart
+        let colors :Array<string> = ["fa fa-circle text-info","fa fa-circle text-danger","fa fa-circle text-warning"];
+        for (let i = 0; i < data.names.length; i++) {
+          this.mylegands1.push({title:data.names[i],imageClass: colors[Math.floor(Math.random() * colors.length)]});
+          this.mylabels1.push(data.names[i]);
+        }
+        console.log(this.mylabels1); 
+        console.log(this.emailChartLegendItems1); 
+        // values 
+        for (let i = 0; i < data.values.length; i++) {
+          this.myseries1.push(data.values[i]);
+        }
+        console.log(this.myseries1); 
         
         
       });
