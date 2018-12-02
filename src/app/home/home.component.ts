@@ -146,12 +146,6 @@ export class HomeComponent implements OnInit {
       });
     }
 
-    //GoToClient
-    GoToClient(getid) {
-
-        this.router.navigate(['/user', { id : getid}]);
-     
-    }
 
 
     accessCurrentPortfolio(id: string) {

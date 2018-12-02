@@ -41,6 +41,6 @@ export class TablesComponent implements OnInit {
   }
 
   accessData(custId: string) {
-    this.router.navigate(['/advisor', { id : custId}]);
+    this.router.navigate(['/user', { id : custId}]);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -19,14 +19,16 @@ export class UserComponent implements OnInit {
   public postalCode: any;
   public creditRating: any;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
-
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) { }
+  private customer_id :any; 
   ngOnInit() {
     this.route.params.subscribe(
       params => {
         this.getCustomerProfile(params['id']);
+        this.customer_id= params['id'];
       }
     );
+
   }
 
   getCustomerProfile(id: string) {
@@ -50,5 +52,13 @@ export class UserComponent implements OnInit {
       this.creditRating = data.credit_rating.rating;
     });
   }
+
+      //GoToClient
+      GoToClient(getid) {
+
+        this.router.navigate(['/advisor', { id : getid}]);
+     
+    }
+
 
 }
