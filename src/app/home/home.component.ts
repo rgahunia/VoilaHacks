@@ -30,24 +30,35 @@ export class HomeComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) { }
    private customer_id :any; 
+   private mylabels :any;
+   private myseries :any;
+   private mylegands :any;
   ngOnInit() {
     this.getCustomerSummary();
 
     this.route.params.subscribe(
       params => {
-        console.log(params['id']);
+        
         this.customer_id = params['id'];
       }
     );
+
+
+    this.accessCurrentPortfolio(this.customer_id); //UNCOMMENT ME
       this.emailChartType = ChartType.Pie;
+      // test data 
+      // end test data
+      this.mylabels = []; // ['62%', '32%', '6%'];
+      this.myseries =[];// [62, 32, 6];
+
       this.emailChartData = {
-        labels: ['62%', '32%', '6%'],
-        series: [62, 32, 6]
+        labels: this.mylabels,
+        series: this.myseries
       };
       this.emailChartLegendItems = [
-        { title: 'Open', imageClass: 'fa fa-circle text-info' },
-        { title: 'Bounce', imageClass: 'fa fa-circle text-danger' },
-        { title: 'Unsubscribe', imageClass: 'fa fa-circle text-warning' }
+        // { title: 'Open', imageClass: 'fa fa-circle text-info' },
+        // { title: 'Bounce', imageClass: 'fa fa-circle text-danger' },
+        // { title: 'Unsubscribe', imageClass: 'fa fa-circle text-warning' }
       ];
 // end pie chart 
       this.hoursChartType = ChartType.Line;
@@ -121,14 +132,35 @@ export class HomeComponent implements OnInit {
 
     getCustomerSummary() {
       this.apiService.getCustomerList().subscribe((data: Object) => {
-        console.log(data);
+        //console.log(data);
       });
     }
+
     //GoToClient
     GoToClient(getid) {
-      //this.apiService.getCustomerList().subscribe((data: Object) => {
-        console.log(getid);
+
         this.router.navigate(['/user', { id : getid}]);
      
+    }
+
+
+    accessCurrentPortfolio(id: string) {
+      this.apiService.getCurrentPortfolio(id).subscribe((data: any) => {
+        console.log(data);
+        //DATA is the data for the pie chart
+        let colors :Array<string> = ["fa fa-circle text-info","fa fa-circle text-danger","fa fa-circle text-warning"];
+        for (let i = 0; i < data.names.length; i++) {
+          this.emailChartLegendItems.push({title:data.names[i],imageClass: colors[Math.floor(Math.random() * colors.length)]});
+          this.mylabels.push(data.names[i]);
+        }
+        //console.log(this.emailChartLegendItems); 
+        // values 
+        for (let i = 0; i < data.values.length; i++) {
+          this.myseries.push(data.values[i]);
+        }
+        console.log(this.myseries); 
+        
+        
+      });
     }
 }

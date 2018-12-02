@@ -11,7 +11,7 @@
                 </div>
                 <br/>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-10">
                 <lbd-chart
                   [title]="'Email Statistics'"
                   [subtitle]="'Last Campaign Performance'"
@@ -21,11 +21,11 @@
                   [legendItems]="emailChartLegendItems"
                   [withHr]="true"
                   [footerIconClass]="'fa fa-clock-o'"
-                  [footerText]="'Campaign sent 2 days ago'">
+                  [footerText]="'Current Portfolio'">
                 </lbd-chart>
             </div>
-            <div class="col-md-8">
-                <lbd-chart
+            <div class="col-md-2">
+                <!-- <lbd-chart
                   [title]="'Users Behavior'"
                   [subtitle]="'24 Hours performance'"
                   [chartType]="hoursChartType"
@@ -36,7 +36,7 @@
                   [withHr]="true"
                   [footerIconClass]="'fa fa-history'"
                   [footerText]="'Updated 3 minutes ago'">
-                </lbd-chart>
+                </lbd-chart> -->
             </div>
         </div>
         

@@ -15,6 +15,7 @@ declare interface TableData {
 export class TablesComponent implements OnInit {
     public tableData1: TableData;
     private customers: Array<any> = [];
+
   constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
@@ -42,5 +43,4 @@ export class TablesComponent implements OnInit {
   accessData(custId: string) {
     this.router.navigate(['/advisor', { id : custId}]);
   }
-
 }
