@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
       for (let i = 0; i < data.values.length; i++) {
         this.currentPortfolioData.push(data.values[i]);
       }
-      console.log('currentPortfolioData');
+      console.log('currentPortfolioLabels');
       console.log(this.currentPortfolioData);
 
       this.currentPortfolioGraph = {
