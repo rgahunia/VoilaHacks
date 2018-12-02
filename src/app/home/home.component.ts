@@ -175,7 +175,7 @@ export class HomeComponent implements OnInit {
         //DATA is the data for the pie chart
         let colors :Array<string> = ["fa fa-circle text-info","fa fa-circle text-danger","fa fa-circle text-warning"];
         for (let i = 0; i < data.names.length; i++) {
-          this.mylegands1.push({title:data.names[i],imageClass: colors[Math.floor(Math.random() * colors.length)]});
+          this.mylegands1.push({title:i,imageClass: colors[Math.floor(Math.random() * colors.length)]});
           this.mylabels1.push(data.names[i]);
         }
         console.log(this.mylabels1); 
